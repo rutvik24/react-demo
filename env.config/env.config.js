@@ -1,36 +1,34 @@
-const { spawn } = require('child_process');
-const shell = require('shelljs');
+const { spawn } = require("child_process");
+const shell = require("shelljs");
 
 const config = {
-  stage: '.envStg',
-  prod: '.envProd',
-  test: '.envTest',
-  develop: '.envDev',
+  stage: ".envStg",
+  prod: ".envProd",
+  test: ".envTest",
+  develop: ".envDev",
 };
 
 function runCommand(command, args, options = undefined) {
   const spawned = spawn(command, args, options);
 
-  return new Promise(resolve => {
-    spawned.stdout.on('data', data => {
+  return new Promise((resolve) => {
+    spawned.stdout.on("data", (data) => {
       const response = data.toString();
       resolve(response);
     });
 
-    spawned.stderr.on('data', data => {
-      console.error('err', data.toString());
+    spawned.stderr.on("data", (data) => {
+      console.error("err", data.toString());
     });
 
-    spawned.on('close', () => {
+    spawned.on("close", () => {
       resolve();
     });
   });
 }
 
 const main = async () => {
-  const currentBranch = (
-    await runCommand('git', ['branch', '--show-current'])
-  ).trim();
+  const currentBranch = "main";
   console.log(currentBranch);
   let env = config[currentBranch];
   if (!env) {
@@ -38,7 +36,7 @@ const main = async () => {
   }
   console.log(env);
   const path = `./env.config/${env}`;
-  shell.cp(path, './.env');
+  shell.cp(path, "./.env");
 };
 
 main();
