@@ -9,7 +9,7 @@ const config = {
 };
 
 const main = async () => {
-  const currentBranch = "develop";
+  const currentBranch = "stage";
   console.log(currentBranch);
   let env = config[currentBranch];
   if (!env) {
