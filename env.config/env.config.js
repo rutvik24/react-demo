@@ -1,4 +1,3 @@
-const { spawn } = require("child_process");
 const shell = require("shelljs");
 
 const config = {
