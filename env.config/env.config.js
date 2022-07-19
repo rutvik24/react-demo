@@ -28,7 +28,7 @@ function runCommand(command, args, options = undefined) {
 }
 
 const main = async () => {
-  const currentBranch = "main";
+  const currentBranch = "prod";
   console.log(currentBranch);
   let env = config[currentBranch];
   if (!env) {
