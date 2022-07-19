@@ -2,7 +2,8 @@ import logo from "./logo.svg";
 import "./App.css";
 
 function App() {
-  const url = process.env.BASE_URL;
+  const url = process.env.REACT_APP_BASE_URL;
+  console.log("hehbehwg", process.env.REACT_APP_BASE_URL);
   return (
     <div className="App">
       <header className="App-header">
