@@ -2,6 +2,7 @@ import logo from "./logo.svg";
 import "./App.css";
 
 function App() {
+  const url = process.env.BASE_URL;
   return (
     <div className="App">
       <header className="App-header">
@@ -11,7 +12,7 @@ function App() {
         </p>
         <a
           className="App-link"
-          href={process.env.BASE_URL}
+          href={url}
           target="_blank"
           rel="noopener noreferrer"
         >
